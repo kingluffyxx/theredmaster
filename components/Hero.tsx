@@ -20,7 +20,7 @@ export default function Hero() {
       title: "Illustration",
       subtitle: "Des créations uniques qui racontent votre histoire",
       type: "video", // Change to "image" and add your image path
-      media: "/videos/annimelogo.mp4"
+      media: "https://xk3ldx3o22d35md8.public.blob.vercel-storage.com/annimelogo.mp4"
       // For images: media: "/images/illustration.jpg"
     },
     {

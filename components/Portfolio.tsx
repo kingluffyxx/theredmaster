@@ -300,7 +300,7 @@ export default function Portfolio() {
       image: "/images/motion/cadre_annime_logo.jpg",
       description: "Animation du logo The Red Master",
       type: "video",
-      videoUrl: "/videos/annimelogo.mp4"
+      videoUrl: "https://xk3ldx3o22d35md8.public.blob.vercel-storage.com/annimelogo.mp4"
     },
     {
       id: 20,
@@ -309,7 +309,7 @@ export default function Portfolio() {
       image: "/images/motion/cadre_wwf.jpg",
       description: "Animation pour WWF",
       type: "video",
-      videoUrl: "/videos/video_wwf.mp4",
+      videoUrl: "https://xk3ldx3o22d35md8.public.blob.vercel-storage.com/video_wwf.mp4",
       detailsUrl: "/pdf/dossier_de_conception_wwf.pdf"
     },
     {
@@ -339,7 +339,7 @@ export default function Portfolio() {
       image: "/images/motion/cadre_50ans_abbeville.jpg",
       description: "Animation 50 ans SLB Abbeville",
       type: "video",
-      videoUrl: "/videos/50_ans_abbeville.mp4"
+      videoUrl: "https://xk3ldx3o22d35md8.public.blob.vercel-storage.com/50_ans_abbeville.mp4"
     },
     {
       id: 24,
@@ -348,7 +348,7 @@ export default function Portfolio() {
       image: "/images/motion/cadre_spacex.jpg",
       description: "Animation Space X",
       type: "video",
-      videoUrl: "/videos/space_x.mp4",
+      videoUrl: "https://xk3ldx3o22d35md8.public.blob.vercel-storage.com/space_x.mp4",
       detailsUrl: "/pdf/dossier_de_conception_space.pdf"
     },
     {
@@ -358,7 +358,7 @@ export default function Portfolio() {
       image: "/images/motion/tenisdetable.jpg",
       description: "Animation de logo",
       type: "video",
-      videoUrl: "/videos/tenisdetable.mp4"
+      videoUrl: "https://xk3ldx3o22d35md8.public.blob.vercel-storage.com/tenisdetable.mp4"
     },
 
     // WEB
