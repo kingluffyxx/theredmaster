@@ -1,0 +1,774 @@
+@font-face {
+    font-family: "MyriadPro-Regular";
+    src: url('../fonts/fonts/MyriadPro-Regular.otf');
+}
+@font-face {
+    font-family: "Painted_Paradise";
+    src: url('../fonts/fonts/Painted_Paradise.ttf');
+}
+@font-face {
+    font-family: "impact";
+    src: url('../fonts/fonts/impact.ttf');
+}
+/* nav */
+.navbar-brand{
+	font-family: "Painted_Paradise";
+	color: white !important;
+	margin-top: 8px;
+	margin-left: 10px;
+}
+
+.nav-link{
+	color: white !important;
+	font-weight: bold;
+}
+
+.navbar-toggler{
+	background-color: white !important;
+}
+a:hover{
+	color: red !important;
+}
+
+.slide{
+	margin-top: 70px ;
+     /*border: 2px solid #73AD21;*/
+}
+.carousel-caption h1{
+	font-family: "Painted_Paradise" ;
+	color: white;
+    font-size: 10em;
+	width: 100%;
+    margin: auto;
+	padding: 0%;
+}
+.carousel-caption h5{
+    font-family: "Painted_Paradise" ;
+    color: white;
+    font-size: 1.1em;
+    width: 100%;
+    margin: auto;
+    padding: 0%;
+}
+.carousel-caption h2{
+	font-family: "MyriadPro-Regular" ;
+	color: white;
+    font-size: 2em;
+	width: 100%;
+    margin: auto;
+	padding: 0%;
+}
+.carousel-caption h3{
+	font-family: "impact" ;
+	color: white;
+    font-size: 3em;
+	width: 100%;
+    margin: auto;
+	text-align: left;
+	padding: 0% 0% 30% 0%;
+}
+.carousel-caption h4{
+	font-family: "impact" ;
+	color: white;
+    font-size: 3em;
+	width: 100%;
+    margin: auto;
+	text-align: right;
+	padding: 0% 0% 35% 50%;
+}
+
+.zone1 {
+    margin: auto;
+    width: 97%;
+	height:200px;
+     /*border: 2px solid #73AD21;*/
+    padding: 0px;
+}
+
+.zone1 h2 {
+    font-family: "Painted_Paradise";
+    color: #114c63;
+    margin: auto;
+	margin-top: 5%;
+    width: 100%;
+    font-size: 5em;
+    text-align: center;
+     /*border: 2px solid #73AD21;*/
+}
+.zone1 p {
+	font-family: "MyriadPro-Regular";
+	color: #114c63;
+    margin: auto;
+    width: 80%;
+	line-height: 1.5;
+	text-align: center;
+	padding: 0px;
+     /*border: 2px solid #73AD21;*/
+}
+.zone a:hover {
+    background-color: #fff;
+    color: #114c63;
+    opacity: 0.7;
+    border: 2px solid #114c63;
+     /*border: 2px solid #73AD21;*/
+}
+.aptitude {
+    background-color: #e8e8e8;
+    width: 100%;
+    height: 400px;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    border: 1px solid transparent;
+    /* border: 2px solid #73AD21; */
+}
+.aptitude h2 {
+    font-family: "Painted_Paradise";
+    color: #114c63;
+    margin: auto;
+    margin-top: 5%;
+    width: 100%;
+    font-size: 5em;
+    text-align: center;
+     /*border: 2px solid #73AD21;*/
+}
+.aptitude p {
+    font-family: "MyriadPro-Regular";
+    color: #114c63;
+    margin: auto;
+    width: 100%;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0px;
+     /*border: 2px solid #73AD21;*/
+}
+.aptitude h3 {
+    font-family: "impact";
+    color: #114c63;
+    margin: auto;
+    width: 100%;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0px;
+     /*border: 2px solid #73AD21;*/
+}
+
+.apti0 {
+    display: flex;
+    margin: auto;
+    width: 70%;
+    padding: 0px;
+     /*border: 2px solid #73AD21;*/
+}
+.apti{
+    margin: auto;
+    width: 20%;
+    height: 210px;
+    text-align: center;
+    padding: 0px;
+     /*border: 2px solid #73AD21;*/
+}
+.apti a{
+    color: #fff !important;
+     /*border: 2px solid #73AD21;*/
+}
+
+.zone {
+	background-color: #e8e8e8;
+    margin: auto;
+    width: 97%;
+	height:540px;
+    padding: 0px;
+	/*border: 2px solid #73AD21;*/
+}
+.pagelamarque {
+    position: absolute;
+    border: 1px solid green; 
+   border: 2px solid #73AD21;
+}
+.txtdroite {
+	background-color: #e8e8e8;
+    float: right;
+    width: 50%;
+    height: 100%;
+    padding: 0px;
+    margin: auto;
+	/*border: 2px solid #73AD21;*/
+}
+.txtgauche {
+	background-color: #e8e8e8;
+    float: left;
+    width: 50%;
+    height: 100%;
+    /*border: 2px solid #73AD21;*/
+    padding: 0px;
+    margin: auto;
+}
+.zone h2 {
+    font-family: "Painted_Paradise"!important;
+    color: #114c63;
+    margin: auto;
+	margin-top: 5%;
+    width: 100%;
+    font-size: 5em;
+    text-align: center;
+     /*border: 2px solid #73AD21;*/
+}
+
+.zone p {
+	font-family: "MyriadPro-Regular";
+	color: #114c63;
+    margin: auto;
+    width: 80%;
+	line-height: 1.5;
+	padding: 0px;
+     /*border: 2px solid #73AD21;*/
+}
+.zone a {
+    font-family: "MyriadPro-Regular";
+    color: #fff;
+    margin: auto;
+    width: 80%;
+    line-height: 1.5;
+    padding: 0px;
+     /*border: 2px solid #73AD21;*/
+}
+.zone a:link {
+    font-family: "MyriadPro-Regular";
+    color: #fff;
+    border-radius: 4px;
+    background-color: #114c63;
+    font-size: 15px;
+    margin: 2% 20%;
+    width: 80%;
+    line-height: 1.5;
+    padding: 10px 18px;
+    cursor: pointer;
+     /*border: 2px solid #73AD21;*/
+}
+.zone2 {
+	background-image: url(../images/msg.svg);
+    background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 718px;
+	margin: auto;
+    text-align: center;
+    padding: 1px;
+	/* border: 2px solid #73AD21; */
+}
+
+.boutton {
+    background-color: #114c63;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 2% 20%;
+    cursor: pointer;
+}
+.boutton:hover {
+    background-color: #fff;
+    color: #114c63;
+    border-radius: 4px;
+    opacity: 0.7;
+    border: 2px solid #114c63;
+}
+.contact {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+}
+
+
+.img1 {
+	float:left;
+    margin: auto;
+    width: 50%;
+	height:100%;
+    /*border: 2px solid #73AD21;*/
+    padding: 0px;
+}
+.img2 {
+	float:right;
+    margin: auto;
+    width: 50%;
+	height:100%;
+    /*border: 2px solid #73AD21;*/
+    padding: 0px;
+}
+.ligne {
+    background-color: #ffffff;
+    margin: auto;
+    width: 100%;
+    height: 25px;
+    padding: 0px;
+}
+
+.contact {
+    margin: auto;
+    width: 100%;
+    height:742px;
+    /*border: 2px solid #73AD21;*/
+    padding: 0px;
+    text-align: center;
+}
+.contact h2{
+    font-family: "Painted_Paradise"!important;
+    color: #fff;
+    margin: auto;
+    margin-top: 5%;
+    width: 100%;
+    font-size: 5em;
+    text-align: center;
+     /*border: 2px solid #73AD21;*/
+}
+.zonecontact{
+    background-color:#50514d;
+    display: flex;
+    margin: auto;
+    width: 100%;
+    /*border: 2px solid #73AD21;*/
+    padding:0px;
+    text-align: center;
+}
+.contact2 {
+    display: flex;
+    background-color:#50514d; 
+    margin: auto;
+    margin-left: 0px;
+    width: 100%;
+    /*border: 2px solid #73AD21;*/
+    padding: 0px;
+    text-align: center;
+}
+.contact2 h2{
+    font-family: "impact";
+    color: #fff;
+    margin: auto;
+    width: 100%;
+    font-size: 20px;
+    text-align: left;
+    /* border: 2px solid #73AD21; */
+}
+.contact2 p{
+    font-family: "MyriadPro-Regular";
+    color: #fff;
+    margin: auto;
+    width: 100%;
+    line-height: 1.5;
+    padding: 0px;
+    text-align: left;
+     /*border: 2px solid #73AD21;*/
+}
+
+.coordonne {
+    margin: auto;
+    text-align: center;
+    height: 120px;
+    width:22%;
+    /* border: 2px solid #73AD21; */
+    padding: 0px;
+}
+
+.reseau {
+    margin: auto;
+    margin-right: 0px;
+    width: 35%;
+    height: 150px;
+    /*border: 2px solid #73AD21;*/
+    padding: 0px;
+}
+
+.invalid-feedback{
+	font-weight: bold;
+}
+
+.submit{
+	color: white !important;
+	font-weight: bold;
+}
+
+.submit:hover{
+	text-decoration: none;
+}
+
+.fa{
+	background-color: #114C63;
+	color: white !important;
+	font-size: 30px !important;
+	text-align:center;
+	text-decoration: none !important;
+	border-radius: 50%;
+	margin:auto;
+	width: 70px;
+	padding: 20px;
+}
+.reseau .fa {
+    background-color: #50514d;
+    color: white ;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none !important;
+    /* border-radius: 50%; */
+    margin: auto;
+    width: 70px;
+    padding: 20px;;
+}
+.reseau .fa:hover {
+    opacity: 0.7;
+}
+
+.copyright {
+    margin: auto;
+    width: 100%;
+	background-color:#50514d;
+     /*border: 2px solid #73AD21;*/
+    padding: 0px;
+	text-align: center;
+}
+.copyright a{
+	font-family: "MyriadPro-Regular";
+	color: #ffffff!important;
+    margin: auto;
+    width: 100%;
+    padding: 0px;
+	text-align: center;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #114c63;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: #fff;
+	color: #114c63;
+	opacity: 0.7;
+	border: 2px solid #114c63;
+	}
+	
+@media all and (max-width: 1200px) 
+{
+	.carousel-caption h2 {
+		font-size: 1em ;
+	}
+
+    .carousel-caption h1 {
+		font-size: 4em !important;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1em;
+        padding: 0% 0% 16% 0%;
+    }
+
+    .carousel-caption h4 {
+        font-size: 1em;
+        padding: 0% 0% 20% 0%;
+    }
+
+    .zone1 h2 {
+        font-size: 3em;
+    }
+
+    .zone h2 {
+        font-size: 3em;
+    }
+    .apti0 {
+        width: 100%;
+    }
+    .aptitude h3 {
+        font-size: 1em;
+    }
+    .p {
+        line-height:5px;
+        font-size: 0.7em;
+    }
+    .fa {
+        color: white !important;
+        font-size: 15px !important;
+        text-align: center;
+        text-decoration: none !important;
+        border-radius: 50%;
+        margin: auto;
+        width: 59px;
+        padding: 20px;
+    }   
+    .aptitude {
+        height: 310px;
+    }
+    .aptitude h2 {
+        font-size: 2em;
+    }
+    .aptitude p {
+        font-size: 0.7em;
+    }
+    .zone1 {
+        height: 130px;
+    }
+    .zone1 {
+        height: 140px;
+    }
+    .zone1 h2 {
+        font-size: 2em;
+    }
+    .zone1 p {
+         font-size: 0.7em;;
+    }
+    .zone2 h2 {
+        font-size: 2em;
+    }
+    .zone .bouton {
+     margin: 0% 20% !important;
+    }
+
+    .zone p {
+        font-size: 0.7em;
+    }
+    #myBtn {
+    padding: 6px;
+    font-size: 0.7em;
+}
+  }
+/*style pages*/
+.pagezone {
+    margin: auto;
+    margin-top: 70px;
+    width: 97%;
+    height: 630px;
+    padding: 0px;
+    /*border: 2px solid #73AD21;*/
+}
+.pagezone h2 {
+    font-family: "Painted_Paradise";
+    color: #114c63;
+    margin: auto;
+    margin-top: 5%;
+    width: 100%;
+    font-size: 5em;
+    text-align: center;
+    /*border: 2px solid #73AD21;*/
+}
+.pagezone p {
+    font-family: "MyriadPro-Regular";
+    color: #114c63;
+    margin: auto;
+    width: 80%;
+    line-height: 1.5;
+    padding: 0px;
+    /*border: 2px solid #73AD21;*/
+}
+.pagezone .carousel-indicators li {
+    position: relative;
+    flex: 0 1 auto;
+    width: 105px;
+    height: 105px;
+    margin-right: 3px;
+    text-indent: 999px;
+    background-color: #e8e8e8;
+    /*border: 2px solid #73AD21;*/
+ }
+ 
+.hidden {
+    display: none;
+}
+#liste-mini-visu {
+    float: left;
+    width: 69px;
+    padding-right: 10px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid #73AD21;
+}
+#liste-mini-visu .mini-visuel {
+    margin-bottom: 10px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid#e8e8e8;
+}
+#visu-produit {
+    width: 414px;
+    height: 427px;
+    margin: auto;
+    margin-left: 13%;
+}
+.visu0 {
+    float: left;
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    padding: 0px;
+    /* margin-right: 3px; */
+}
+.visu0 img {
+    vertical-align: middle;
+    border-style: none;
+    margin: 0px 0px 130px 17%;
+    /* margin-right: 3px; */
+    border: 2px solid #e8e8e8;
+}
+
+.visu0 .carousel-indicators {
+       bottom: 0px;
+}
+
+img[Attributes Style] {
+    width: 427px;
+    height: 427px;
+    margin: 0;
+    padding: 0;
+}
+
+.taille {
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+    height: 0%;
+    padding: 0px;
+    text-align: center;
+    border: 1px solid #50514d;
+}
+.tailletxt {
+    float: left;
+    margin: auto;
+    margin-top: 10px;
+    width: 20%;
+    height: 40px;
+    padding: 0px;
+    border: 1px solid #50514d;
+}
+.txtdroite h3{
+     font-family: "impact";
+    color: #114c63;
+    margin: auto;
+    width: 80%;
+    line-height: 1.5;
+    padding: 0px;
+    font-size: 1.5rem;
+}
+.tailletxt p {
+    font-family: "impact";
+    margin: auto;
+    margin-top: 10px;
+    padding: 0px
+    width: 20%;
+    height: 100%;
+    padding: 0px;
+    line-height: 1.5;
+}
+.btveste1 {
+    background-image: url(../images/veste/veste1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+.btveste2 {
+    background-image: url(../images/veste/veste2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+.btveste3 {
+    background-image: url(../images/veste/veste3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+.btveste4 {
+    background-image: url(../images/veste/veste4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+
+.btpolo1 {
+    background-image: url(../images/polo/polo1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+.btpolo2 {
+    background-image: url(../images/polo/polo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+.btpolo3 {
+    background-image: url(../images/polo/polo3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+.btpolo4 {
+    background-image: url(../images/polo/polo4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+
+.btcasquette1 {
+    background-image: url(../images/casquette/casquette1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+.btcasquette2 {
+    background-image: url(../images/casquette/casquette2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
+.btcasquette3 {
+    background-image: url(../images/casquette/casquette3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    /* border: 2px solid #73AD21; */
+}
