@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Afficher le bouton quand on descend de 300px
   useEffect(() => {
@@ -22,6 +23,30 @@ export default function ScrollToTop() {
     };
   }, []);
 
+  // Détecter si une modal est ouverte
+  useEffect(() => {
+    const checkModalOpen = () => {
+      const modal = document.querySelector('dialog[open]');
+      setIsModalOpen(!!modal);
+    };
+
+    // Vérifier immédiatement
+    checkModalOpen();
+
+    // Observer les changements dans le DOM
+    const observer = new MutationObserver(checkModalOpen);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['open']
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   // Fonction pour remonter en haut
   const scrollToTop = () => {
     window.scrollTo({
@@ -35,7 +60,9 @@ export default function ScrollToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 bg-primary hover:bg-primary-dark text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          className={`fixed bottom-8 right-8 z-50 bg-primary hover:bg-primary-dark text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${
+            isModalOpen ? 'md:block hidden' : ''
+          }`}
           aria-label="Retour en haut"
         >
           <svg

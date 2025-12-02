@@ -16,7 +16,7 @@ import {
   VideoPlayerMuteButton
 } from '@/components/kibo-ui/video-player';
 
-type Category = 'Tous' | 'Entreprise' | 'Print' | 'Motion' | 'Web' | 'Divers';
+type Category = 'Tous' | 'Branding' | 'Print' | 'Videos' | 'Web' | 'Divers';
 type ProjectType = 'image' | 'video' | 'web';
 
 interface Project {
@@ -74,6 +74,18 @@ export default function Portfolio() {
     setIsClient(true);
   }, []);
 
+  // Empêcher le scroll du body quand la modal est ouverte
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -119,14 +131,14 @@ export default function Portfolio() {
   };
 
 
-  const categories: Category[] = ['Tous', 'Entreprise', 'Print', 'Motion', 'Web', 'Divers'];
+  const categories: Category[] = ['Tous', 'Branding', 'Print', 'Videos', 'Web', 'Divers'];
 
   const projects: Project[] = [
     // ENTREPRISE
     {
       id: 1,
       title: "Goumin",
-      category: ['Entreprise'],
+      category: ['Branding'],
       image: "/images/entreprise/cadre_img_goumin.jpg",
       images: ["/images/entreprise/visuel_goumin.jpg"],
       description: "Projet de branding pour Goumin",
@@ -135,7 +147,7 @@ export default function Portfolio() {
     {
       id: 2,
       title: "gooddyl'",
-      category: ['Entreprise'],
+      category: ['Branding'],
       image: "/images/entreprise/cadre_gooddyl.jpg",
       images: ["/images/entreprise/visuel_gooddyl.jpg"],
       description: "Identité visuelle gooddyl'",
@@ -144,7 +156,7 @@ export default function Portfolio() {
     {
       id: 3,
       title: "African leaders",
-      category: ['Entreprise'],
+      category: ['Branding'],
       image: "/images/entreprise/cadre_african_leaders.jpg",
       images: ["/images/entreprise/visuel_african_leaders.jpg"],
       description: "Branding African leaders",
@@ -153,7 +165,7 @@ export default function Portfolio() {
     {
       id: 4,
       title: "mendes bat et rénovation",
-      category: ['Entreprise'],
+      category: ['Branding'],
       image: "/images/entreprise/cadre_carte_de_visite_mendes.jpg",
       images: ["/images/entreprise/visuel_carte_de_visite_mendes.jpg"],
       description: "Carte de visite pour Mendes",
@@ -162,7 +174,7 @@ export default function Portfolio() {
     {
       id: 5,
       title: "la petite bouffe",
-      category: ['Entreprise'],
+      category: ['Branding'],
       image: "/images/entreprise/cadre_la_petite_bouffe.jpg",
       images: ["/images/entreprise/visuel_la_petite_bouffe.jpg"],
       description: "Design pour restaurant",
@@ -171,7 +183,7 @@ export default function Portfolio() {
     {
       id: 6,
       title: "zapatv",
-      category: ['Entreprise'],
+      category: ['Branding'],
       image: "/images/entreprise/cadre_zapatv.jpg",
       images: ["/images/entreprise/visuel_zapatv.jpg"],
       description: "Identité visuelle zapatv",
@@ -180,7 +192,7 @@ export default function Portfolio() {
     {
       id: 7,
       title: "Sand Consult",
-      category: ['Entreprise'],
+      category: ['Branding'],
       image: "/images/entreprise/cadre_sandconsult.jpg",
       images: ["/images/entreprise/visuel_sandconsult.jpg"],
       description: "Branding complet Sand Consult",
@@ -287,7 +299,7 @@ export default function Portfolio() {
     {
       id: 18,
       title: "Vidéo: présentation du projet Sovengaard",
-      category: ['Motion'],
+      category: ['Videos'],
       image: "/images/motion/cadre_sovengaard.jpg",
       description: "Présentation animée du projet Sovengaard",
       type: "video",
@@ -296,7 +308,7 @@ export default function Portfolio() {
     {
       id: 19,
       title: "Vidéo: Animation logo The Red Master",
-      category: ['Motion'],
+      category: ['Videos'],
       image: "/images/motion/cadre_annime_logo.jpg",
       description: "Animation du logo The Red Master",
       type: "video",
@@ -305,7 +317,7 @@ export default function Portfolio() {
     {
       id: 20,
       title: "Vidéo: WWF",
-      category: ['Motion'],
+      category: ['Videos'],
       image: "/images/motion/cadre_wwf.jpg",
       description: "Animation pour WWF",
       type: "video",
@@ -315,7 +327,7 @@ export default function Portfolio() {
     {
       id: 21,
       title: "Vidéo: Spacy Piment",
-      category: ['Motion'],
+      category: ['Videos'],
       image: "/images/motion/spacy.jpg",
       description: "Animation Spicy Piment",
       type: "video",
@@ -325,7 +337,7 @@ export default function Portfolio() {
     {
       id: 22,
       title: "Vidéo: Bonne Année 2019",
-      category: ['Motion'],
+      category: ['Videos'],
       image: "/images/motion/nouvelan2019.jpg",
       description: "Carte de voeux animée 2019",
       type: "video",
@@ -335,7 +347,7 @@ export default function Portfolio() {
     {
       id: 23,
       title: "Vidéo: 50 ans SLB abbeville",
-      category: ['Motion'],
+      category: ['Videos'],
       image: "/images/motion/cadre_50ans_abbeville.jpg",
       description: "Animation 50 ans SLB Abbeville",
       type: "video",
@@ -344,7 +356,7 @@ export default function Portfolio() {
     {
       id: 24,
       title: "Vidéo: Space X",
-      category: ['Motion'],
+      category: ['Videos'],
       image: "/images/motion/cadre_spacex.jpg",
       description: "Animation Space X",
       type: "video",
@@ -354,7 +366,7 @@ export default function Portfolio() {
     {
       id: 25,
       title: "Vidéo: Tennis de table",
-      category: ['Motion'],
+      category: ['Videos'],
       image: "/images/motion/tenisdetable.jpg",
       description: "Animation de logo",
       type: "video",
@@ -552,7 +564,7 @@ export default function Portfolio() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+            className="gap-4 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -603,7 +615,7 @@ export default function Portfolio() {
 
         {/* Lightbox Modal */}
         {selectedProject && (
-          <div className="z-50 fixed inset-0 flex justify-center items-center p-4">
+          <div className="z-50 fixed inset-0 flex justify-center items-center px-2 md:px-4 py-2 md:py-4">
             {/* Backdrop clickable pour fermer la modale */}
             <button
               type="button"
@@ -612,7 +624,7 @@ export default function Portfolio() {
               onClick={() => setSelectedProject(null)}
             />
 
-            {/* Navigation Buttons - Outside Modal */}
+            {/* Navigation Buttons - Outside Modal - Hidden on mobile */}
             {filteredProjects.length > 1 && (
               <>
                 {/* Previous Button */}
@@ -621,7 +633,7 @@ export default function Portfolio() {
                     e.stopPropagation();
                     navigateProject('prev');
                   }}
-                  className="top-1/2 left-4 md:left-8 z-[60] absolute bg-white/90 hover:bg-white shadow-lg p-3 rounded-full hover:scale-110 transition-all -translate-y-1/2 duration-200"
+                  className="hidden md:block top-1/2 left-4 md:left-8 z-[60] absolute bg-white/20 hover:bg-white/40 backdrop-blur-sm p-3 rounded-full text-white hover:scale-110 transition-all -translate-y-1/2 duration-200"
                   aria-label="Projet précédent"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -635,7 +647,7 @@ export default function Portfolio() {
                     e.stopPropagation();
                     navigateProject('next');
                   }}
-                  className="top-1/2 right-4 md:right-8 z-[60] absolute bg-white/90 hover:bg-white shadow-lg p-3 rounded-full hover:scale-110 transition-all -translate-y-1/2 duration-200"
+                  className="hidden md:block top-1/2 right-4 md:right-8 z-[60] absolute bg-white/20 hover:bg-white/40 backdrop-blur-sm p-3 rounded-full text-white hover:scale-110 transition-all -translate-y-1/2 duration-200"
                   aria-label="Projet suivant"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -649,7 +661,7 @@ export default function Portfolio() {
               open
               aria-modal="true"
               aria-label="Modal du projet"
-              className={`relative flex flex-col bg-white rounded-2xl w-full max-w-[960px] max-h-[95vh] overflow-hidden transition-all duration-300 ${
+              className={`relative flex flex-col bg-white rounded-2xl w-full max-w-full md:max-w-[960px] max-h-[95vh] overflow-hidden transition-all duration-300 ${
                 isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
               }`}
             >
@@ -657,16 +669,16 @@ export default function Portfolio() {
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="top-4 right-4 z-10 absolute bg-white hover:bg-gray-100 shadow-lg p-2 rounded-full transition-colors"
+                  className="top-2 right-2 md:top-4 md:right-4 z-10 absolute bg-white/20 hover:bg-white/40 backdrop-blur-sm p-3 md:p-2 rounded-full text-white hover:scale-110 transition-all duration-200"
                 >
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
 
                 {/* Project Content based on type */}
                 {selectedProject.type === 'web' && selectedProject.webUrl && (
-                  <div className="w-full" style={{ height: '60vh' }}>
+                  <div className="w-full h-[50vh] md:h-[60vh]">
                     <iframe
                       src={selectedProject.webUrl}
                       className="rounded-t-2xl w-full h-full"
@@ -679,7 +691,7 @@ export default function Portfolio() {
                 {selectedProject.type === 'video' && selectedProject.videoUrl && (
                   <div className="w-full h-full">
                     {isYoutubeUrl(selectedProject.videoUrl) ? (
-                      <div className="relative bg-black rounded-t-2xl overflow-hidden" style={{ height: '75vh' }}>
+                      <div className="relative bg-black rounded-t-2xl overflow-hidden h-[50vh] md:h-[75vh]">
                         <iframe
                           className="absolute inset-0 w-full h-full"
                           src={getYoutubeEmbedUrl(selectedProject.videoUrl) || selectedProject.videoUrl}
@@ -689,7 +701,7 @@ export default function Portfolio() {
                         />
                       </div>
                     ) : (
-                      <div className="relative bg-black rounded-t-2xl overflow-hidden">
+                      <div className="relative bg-black rounded-t-2xl overflow-hidden h-[50vh] md:h-[75vh]">
                         <VideoPlayer className="w-full h-full">
                           <VideoPlayerContent
                             src={selectedProject.videoUrl}
@@ -713,7 +725,7 @@ export default function Portfolio() {
                 )}
 
                 {selectedProject.type === 'image' && (
-                  <div className="relative flex justify-center items-center bg-black rounded-t-2xl w-full overflow-hidden" style={{ height: '75vh' }}>
+                  <div className="relative flex justify-center items-center bg-black rounded-t-2xl w-full overflow-hidden h-[50vh] md:h-[75vh]">
                     {selectedProject.images && selectedProject.images.length > 0 ? (
                       <>
                         {/* Image du carrousel */}
@@ -786,14 +798,14 @@ export default function Portfolio() {
                 )}
 
                 {/* Project Details */}
-                <div className="p-8 overflow-y-auto">
-                  <h3 className="mb-4 font-heading font-bold text-3xl">{selectedProject.title}</h3>
-                  <p className="mb-6 text-gray-600">{selectedProject.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="p-4 md:p-8 overflow-y-auto">
+                  <h3 className="mb-3 md:mb-4 font-heading font-bold text-xl md:text-3xl">{selectedProject.title}</h3>
+                  <p className="mb-4 md:mb-6 text-sm md:text-base text-gray-600">{selectedProject.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                     {selectedProject.category.map((cat) => (
                       <span
                         key={cat}
-                        className="bg-primary/10 px-4 py-2 rounded-full font-semibold text-primary"
+                        className="bg-primary/10 px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-xs md:text-sm text-primary"
                       >
                         {cat}
                       </span>
@@ -806,10 +818,10 @@ export default function Portfolio() {
                       href={selectedProject.detailsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 btn-primary"
+                      className="inline-flex items-center gap-2 btn-primary text-sm md:text-base"
                     >
                       Voir le projet en détail
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>

@@ -1,6 +1,64 @@
+# Alternative : Intégration EmailJS pour envoi automatique
+
+Si vous souhaitez que les emails s'envoient automatiquement sans ouvrir le client email du visiteur, vous pouvez utiliser EmailJS (gratuit jusqu'à 200 emails/mois).
+
+## 🚀 Configuration EmailJS
+
+### Étape 1 : Créer un compte EmailJS
+
+1. Aller sur https://www.emailjs.com/
+2. Créer un compte gratuit
+3. Vérifier votre email
+
+### Étape 2 : Configurer le service email
+
+1. Dans le dashboard EmailJS, aller dans **Email Services**
+2. Cliquer sur **Add New Service**
+3. Choisir votre fournisseur email (Gmail, Outlook, etc.)
+4. Suivre les instructions pour connecter votre compte
+5. Noter le **Service ID** (ex: `service_abc123`)
+
+### Étape 3 : Créer un template d'email
+
+1. Aller dans **Email Templates**
+2. Cliquer sur **Create New Template**
+3. Configurer le template :
+
+```
+To Email: contact@theredmaster.com
+From Name: {{from_name}}
+From Email: {{from_email}}
+Subject: {{subject}}
+
+Message:
+Nom: {{from_name}}
+Email: {{from_email}}
+
+{{message}}
+```
+
+4. Noter le **Template ID** (ex: `template_xyz789`)
+
+### Étape 4 : Obtenir la clé publique
+
+1. Aller dans **Account** > **General**
+2. Noter votre **Public Key** (ex: `user_abcdef123456`)
+
+### Étape 5 : Installer EmailJS dans le projet
+
+```bash
+pnpm add @emailjs/browser
+```
+
+### Étape 6 : Modifier le composant Contact
+
+Remplacer le contenu de `components/Contact.tsx` par :
+
+```tsx
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -28,7 +86,6 @@ export default function Contact() {
     if (currentRef) {
       observer.observe(currentRef);
 
-      // Vérifier si déjà visible au chargement
       const rect = currentRef.getBoundingClientRect();
       const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
       if (isInViewport) {
@@ -48,27 +105,31 @@ export default function Contact() {
     setStatus('loading');
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // Remplacer par vos IDs EmailJS
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
 
-      const data = await response.json();
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Erreur lors de l\'envoi');
-      }
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
 
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
 
-      // Réinitialiser le status après 5 secondes
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
-      console.error('Erreur lors de l\'envoi du formulaire de contact :', error);
+      console.error('Erreur lors de l\'envoi:', error);
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
     }
@@ -84,9 +145,9 @@ export default function Contact() {
   return (
     <section ref={sectionRef} id="contact" className="bg-gradient-to-br from-gray-50 to-gray-100 py-32">
       <div className="container-custom">
-        <div className={`text-center mb-16 transition-all duration-700 ${
+        <div className={\`text-center mb-16 transition-all duration-700 \${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-        }`}>
+        }\`}>
           <h2 className="section-title">Contact</h2>
           <p className="section-subtitle">
             Une idée de projet ? Discutons-en ensemble
@@ -95,9 +156,9 @@ export default function Contact() {
 
         <div className="gap-12 grid grid-cols-1 lg:grid-cols-2 mx-auto max-w-6xl">
           {/* Contact Info */}
-          <div className={`space-y-8 transition-all duration-700 delay-200 ${
+          <div className={\`space-y-8 transition-all duration-700 delay-200 \${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-          }`}>
+          }\`}>
             <div>
               <h3 className="mb-6 font-heading font-bold text-gray-900 text-2xl">
                 Restons en contact
@@ -109,7 +170,6 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Info Cards */}
             <div className="gap-4 grid grid-cols-1 mt-8">
               <div className="bg-white shadow-lg p-6 rounded-xl">
                 <div className="flex items-start gap-4">
@@ -135,7 +195,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h5 className="mb-1 font-semibold text-gray-900">Localisation</h5>
-                    <p className="text-gray-700">Paris,France</p>
+                    <p className="text-gray-700">Paris, France</p>
                   </div>
                 </div>
               </div>
@@ -143,9 +203,9 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className={`bg-white rounded-2xl shadow-xl p-8 transition-all duration-700 delay-300 ${
+          <div className={\`bg-white rounded-2xl shadow-xl p-8 transition-all duration-700 delay-300 \${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-          }`}>
+          }\`}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block mb-2 font-semibold text-gray-900 text-sm">
@@ -159,7 +219,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'loading'}
-                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50"
                   placeholder="Votre nom"
                 />
               </div>
@@ -176,7 +236,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'loading'}
-                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50"
                   placeholder="votre@email.com"
                 />
               </div>
@@ -193,7 +253,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'loading'}
-                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50"
                   placeholder="Sujet de votre message"
                 />
               </div>
@@ -210,7 +270,7 @@ export default function Contact() {
                   required
                   disabled={status === 'loading'}
                   rows={6}
-                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all resize-none disabled:opacity-50"
                   placeholder="Votre message..."
                 />
               </div>
@@ -221,17 +281,16 @@ export default function Contact() {
                 className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'loading' ? 'Envoi en cours...' : 'Envoyer le message'}
-</button>
+              </button>
 
-              {/* Status Messages */}
               {status === 'success' && (
                 <div className="bg-green-50 p-4 border border-green-200 rounded-lg text-green-800 text-center">
-                  ✅ Votre message a bien été envoyé ! Je vous répondrai dans les plus brefs délais.
+                  ✅ Votre message a bien été envoyé !
                 </div>
               )}
               {status === 'error' && (
                 <div className="bg-red-50 p-4 border border-red-200 rounded-lg text-red-800 text-center">
-                  ❌ Erreur lors de l'envoi. Veuillez réessayer ou m'écrire directement à contact@theredmaster.com
+                  ❌ Erreur lors de l'envoi. Veuillez réessayer.
                 </div>
               )}
             </form>
@@ -241,3 +300,37 @@ export default function Contact() {
     </section>
   );
 }
+```
+
+### Étape 7 : Configurer les variables
+
+Dans le code ci-dessus, remplacer :
+```javascript
+const serviceId = 'YOUR_SERVICE_ID';      // Remplacer par votre Service ID
+const templateId = 'YOUR_TEMPLATE_ID';    // Remplacer par votre Template ID
+const publicKey = 'YOUR_PUBLIC_KEY';      // Remplacer par votre Public Key
+```
+
+### Étape 8 : Tester
+
+1. Rebuild le projet : `pnpm run build`
+2. Tester le formulaire
+3. Vérifier que vous recevez l'email sur contact@theredmaster.com
+
+## ✅ Avantages EmailJS
+
+- ✅ Envoi automatique sans ouvrir le client email
+- ✅ Meilleure expérience utilisateur
+- ✅ Protection anti-spam
+- ✅ Gratuit jusqu'à 200 emails/mois
+- ✅ Historique des emails envoyés
+
+## 📊 Comparaison
+
+| Méthode | Avantage | Inconvénient |
+|---------|----------|--------------|
+| **Mailto (actuel)** | Simple, aucune config | Ouvre le client email |
+| **EmailJS** | Envoi automatique | Configuration nécessaire |
+| **Formspree** | Alternative similaire | 50 emails/mois gratuit |
+
+Voulez-vous que j'intègre EmailJS ?

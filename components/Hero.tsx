@@ -11,17 +11,17 @@ export default function Hero() {
 
   const slides = [
     {
-      title: "Design Créatif",
-      subtitle: "Transformez vos idées en réalité visuelle",
-      type: "image", // "image", "video", or "gradient"
-      media: "/images/slide-1.jpg"
-    },
-    {
       title: "Illustration",
       subtitle: "Des créations uniques qui racontent votre histoire",
       type: "video", // Change to "image" and add your image path
       media: "https://xk3ldx3o22d35md8.public.blob.vercel-storage.com/annimelogo.mp4"
       // For images: media: "/images/illustration.jpg"
+    },
+    {
+      title: "Design Créatif",
+      subtitle: "Transformez vos idées en réalité visuelle",
+      type: "image", // "image", "video", or "gradient"
+      media: "/images/slide-1.jpg"
     },
     {
       title: "Motion Design",
@@ -108,13 +108,18 @@ export default function Hero() {
           }`}>
             Sékou BAYOGO
           </h1>
+          <p className={`mb-6 font-light text-xl md:text-2xl text-white/90 transition-all duration-700 ease-out ${
+            hasLoaded ? 'opacity-100 translate-y-0 delay-500' : 'opacity-0 translate-y-12'
+          }`}>
+            graphiste & motion designer
+          </p>
           <p className={`mb-8 font-light text-2xl md:text-3xl transition-all duration-700 ease-out ${
-            hasLoaded && !isAnimating ? 'opacity-100 translate-y-0 delay-[1000ms]' : 'opacity-0 translate-y-12'
+            hasLoaded && !isAnimating ? 'opacity-100 translate-y-0 delay-1000' : 'opacity-0 translate-y-12'
           }`}>
             {slides[currentSlide].subtitle}
           </p>
           <div className={`flex sm:flex-row flex-col justify-center items-center gap-4 mt-12 transition-all duration-700 ease-out ${
-            hasLoaded ? 'opacity-100 translate-y-0 delay-[2000ms]' : 'opacity-0 translate-y-12 delay-[2000ms]'
+            hasLoaded ? 'opacity-100 translate-y-0 delay-2000' : 'opacity-0 translate-y-12 delay-2000'
           }`}>
             <Link
               href="#travaux"

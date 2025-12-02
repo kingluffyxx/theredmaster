@@ -74,6 +74,15 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		transitionDelay: {
+  			'400': '400ms',
+  			'500': '500ms',
+  			'600': '600ms',
+  			'800': '800ms',
+  			'1000': '1000ms',
+  			'1500': '1500ms',
+  			'2000': '2000ms',
   		}
   	}
   },
