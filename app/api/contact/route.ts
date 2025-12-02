@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const { name, email, subject, message, turnstileToken } = body;
 
     // Validation des données
     if (!name || !email || !subject || !message) {
@@ -21,6 +21,32 @@ export async function POST(request: Request) {
         { error: 'Email invalide' },
         { status: 400 }
       );
+    }
+
+    // Vérification Cloudflare Turnstile (si configuré)
+    if (process.env.TURNSTILE_SECRET_KEY && turnstileToken) {
+      const turnstileResponse = await fetch(
+        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            secret: process.env.TURNSTILE_SECRET_KEY,
+            response: turnstileToken,
+          }),
+        }
+      );
+
+      const turnstileData = await turnstileResponse.json();
+
+      if (!turnstileData.success) {
+        return NextResponse.json(
+          { error: 'Échec de la vérification de sécurité' },
+          { status: 400 }
+        );
+      }
     }
 
     // Configuration du transporteur SMTP Ionos

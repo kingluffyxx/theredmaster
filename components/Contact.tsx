@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ export default function Contact() {
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -45,6 +47,15 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Vérifier que Turnstile a été validé (seulement si configuré)
+    const isTurnstileEnabled = !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+    if (isTurnstileEnabled && !turnstileToken) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+      return;
+    }
+
     setStatus('loading');
 
     try {
@@ -53,7 +64,10 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+        }),
       });
 
       const data = await response.json();
@@ -64,6 +78,7 @@ export default function Contact() {
 
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
+      setTurnstileToken('');
 
       // Réinitialiser le status après 5 secondes
       setTimeout(() => setStatus('idle'), 5000);
@@ -214,6 +229,20 @@ export default function Contact() {
                   placeholder="Votre message..."
                 />
               </div>
+
+              {/* Cloudflare Turnstile - Désactivé pour l'instant */}
+              {/* Décommenter et configurer les clés dans .env.local pour activer */}
+              {/* {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+                <div className="flex justify-center">
+                  <Turnstile
+                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setTurnstileToken('')}
+                    onExpire={() => setTurnstileToken('')}
+                    theme="light"
+                  />
+                </div>
+              )} */}
 
               <button
                 type="submit"
