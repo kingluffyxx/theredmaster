@@ -174,7 +174,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'loading'}
-                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="disabled:opacity-50 px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:cursor-not-allowed"
                   placeholder="Votre nom"
                 />
               </div>
@@ -191,7 +191,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'loading'}
-                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="disabled:opacity-50 px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:cursor-not-allowed"
                   placeholder="votre@email.com"
                 />
               </div>
@@ -208,7 +208,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   disabled={status === 'loading'}
-                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="disabled:opacity-50 px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all disabled:cursor-not-allowed"
                   placeholder="Sujet de votre message"
                 />
               </div>
@@ -225,29 +225,27 @@ export default function Contact() {
                   required
                   disabled={status === 'loading'}
                   rows={6}
-                  className="px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="disabled:opacity-50 px-4 py-3 border border-gray-300 focus:border-transparent rounded-lg outline-none focus:ring-2 focus:ring-primary w-full transition-all resize-none disabled:cursor-not-allowed"
                   placeholder="Votre message..."
                 />
               </div>
 
-              {/* Cloudflare Turnstile - Désactivé pour l'instant */}
-              {/* Décommenter et configurer les clés dans .env.local pour activer */}
-              {/* {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+              {/* Cloudflare Turnstile - Optionnel */}
+              {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
                 <div className="flex justify-center">
                   <Turnstile
                     siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                     onSuccess={(token) => setTurnstileToken(token)}
                     onError={() => setTurnstileToken('')}
                     onExpire={() => setTurnstileToken('')}
-                    theme="light"
                   />
                 </div>
-              )} */}
+              )}
 
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="disabled:opacity-50 w-full disabled:cursor-not-allowed btn-primary"
               >
                 {status === 'loading' ? 'Envoi en cours...' : 'Envoyer le message'}
 </button>
