@@ -99,9 +99,8 @@ export default function Contact() {
   return (
     <section ref={sectionRef} id="contact" className="bg-gradient-to-br from-gray-50 to-gray-100 py-32">
       <div className="container-custom">
-        <div className={`text-center mb-16 transition-all duration-700 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-        }`}>
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
           <h2 className="section-title">Contact</h2>
           <p className="section-subtitle">
             Une idée de projet ? Discutons-en ensemble
@@ -110,9 +109,8 @@ export default function Contact() {
 
         <div className="gap-12 grid grid-cols-1 lg:grid-cols-2 mx-auto max-w-6xl">
           {/* Contact Info */}
-          <div className={`space-y-8 transition-all duration-700 delay-200 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-          }`}>
+          <div className={`space-y-8 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+            }`}>
             <div>
               <h3 className="mb-6 font-heading font-bold text-gray-900 text-2xl">
                 Restons en contact
@@ -158,9 +156,8 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className={`bg-white rounded-2xl shadow-xl p-8 transition-all duration-700 delay-300 ${
-            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-          }`}>
+          <div className={`bg-white rounded-2xl shadow-xl p-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+            }`}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block mb-2 font-semibold text-gray-900 text-sm">
@@ -244,11 +241,11 @@ export default function Contact() {
 
               <button
                 type="submit"
-                disabled={status === 'loading'}
+                disabled={status === 'loading' || (!!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken)}
                 className="disabled:opacity-50 w-full disabled:cursor-not-allowed btn-primary"
               >
                 {status === 'loading' ? 'Envoi en cours...' : 'Envoyer le message'}
-</button>
+              </button>
 
               {/* Status Messages */}
               {status === 'success' && (

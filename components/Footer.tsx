@@ -120,7 +120,15 @@ export default function Footer() {
               Copyright © {currentYear} The Red Master | Sékou Bayogo
             </p>
             <p className="text-gray-300 text-sm text-center md:text-right">
-              Développé avec Next.js & Tailwind CSS
+              Développé par{' '}
+              <a
+                href="https://xavieradda.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary-light transition-colors font-semibold"
+              >
+                Xavier Adda
+              </a>
             </p>
           </div>
         </div>
