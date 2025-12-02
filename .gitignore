@@ -45,3 +45,6 @@ next-env.d.ts
 
 # pnpm
 .pnpm-debug.log*
+
+# Claude Code
+.claude/settings.local.json
